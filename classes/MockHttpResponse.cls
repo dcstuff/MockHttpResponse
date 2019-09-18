@@ -1,3 +1,4 @@
+@IsTest
 public class MockHttpResponse implements HttpCalloutMock {
     static List<Mock> mocks;
 

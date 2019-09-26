@@ -18,7 +18,7 @@ The code snippet below sets two mocks responses that are returned in order.
     .body('{ "status": "OK" }')
     .next()
     .statusCode(201)
-    .status(new Map<String, Object>{ 'some-key' => some-value })
+    .status('bibbity-bobbity')
     .body('some text')
  );
  ```

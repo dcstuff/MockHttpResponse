@@ -38,7 +38,7 @@ public class MockHttpResponse implements HttpCalloutMock {
     }
 
     public HttpResponse respond(HttpRequest req) {
-        return getCurrentResponse();
+        return mocks.remove(0).res;
     }
 
     static HttpResponse getCurrentResponse() {

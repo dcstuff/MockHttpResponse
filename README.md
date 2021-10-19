@@ -12,6 +12,11 @@ The code snippet below sets two mocks responses that are returned in order.
 
 - `body()` can take a String or a Map which is then serialized.
 
+- `emptyBuilder()` will not create a starter response by default. You will need to add one via `next()` or `mockCalloutException(String exceptionMessage)`.
+
+- `mockCalloutException(String exceptionMessage)` will create a mock that throws a Callout Exception.
+
+### Example: Create two mock responses
  ```java
  Test.setMock(HttpCalloutMock.class, MockHttpResponse.builder()
     .contentType('application/json')
@@ -22,3 +27,18 @@ The code snippet below sets two mocks responses that are returned in order.
     .body('some text')
  );
  ```
+
+ ### Example: Create one mock response that throws a Callout Exception
+ ```java
+ Test.setMock(HttpCalloutMock.class, MockHttpResponse.emptyBuilder()
+    .mockCalloutException('Oh noes!')
+ );
+ ```
+
+ ### Example: Create one valid mock response and one that throws a Callout Exception
+ ```java
+ Test.setMock(HttpCalloutMock.class, MockHttpResponse.builder()
+    .contentType('application/json')
+    .body('{ "status": "OK" }')
+    .mockCalloutException('Oh noes!')
+ );
